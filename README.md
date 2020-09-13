@@ -13,7 +13,7 @@ Getting Started
 Just clone the repo and install the necessary node modules:
 
 ```shell
-$ git clone git@github.com:glipinc/react-web-ts.git
+$ git clone https://github.com/mathewfanning/mdb.git
 $ yarn                   
 $ yarn start                  
 ```
