@@ -4,16 +4,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+//  -- Layouts ------------------------
+import Wrapper from 'layout/Wrapper';
+
 
 //  ----------------------------------------------------------------------------
 //  Styles
 //  ----------------------------------------------------------------------------
-export const Wrapper = styled.div`
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+export const Container = styled.div`
     height: 100%;
-    justify-content: center;
     width: 100%;
 `;
 
@@ -30,7 +29,9 @@ export const Wrapper = styled.div`
 //
 const NotFoundContainer = () => {
     return (
-        <Wrapper>not found container</Wrapper>
+        <Wrapper>
+            <Container>not found container</Container>
+        </Wrapper>
     );
 };
 

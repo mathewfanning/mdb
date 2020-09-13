@@ -4,11 +4,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+//  -- Layouts ------------------------
+import Wrapper from 'layout/Wrapper';
+
 
 //  ----------------------------------------------------------------------------
 //  Styles
 //  ----------------------------------------------------------------------------
-export const Wrapper = styled.div`
+export const Container = styled.div`
     height: 100%;
     width: 100%;
 `;
@@ -26,7 +29,9 @@ export const Wrapper = styled.div`
 //
 const SplashContainer = () => {
     return (
-        <Wrapper>splash container</Wrapper>
+        <Wrapper>
+            <Container>splash container</Container>
+        </Wrapper>
     );
 };
 

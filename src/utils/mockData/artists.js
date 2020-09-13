@@ -2,7 +2,7 @@
 //  Dependencies
 //  ----------------------------------------------------------------------------
 
-import GeorgeImage from 'utils/static/images/GeorgeStriat.png';
+import GeorgeImage from 'utils/static/images/GeorgeStrait.png';
 import VinceImage from 'utils/static/images/VinceGill.png';
 import GarthImage from 'utils/static/images/GarthBrooks.png';
 import RebaImage from 'utils/static/images/RebaMcIntire.png';

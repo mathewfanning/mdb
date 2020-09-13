@@ -1,21 +1,17 @@
 //  ----------------------------------------------------------------------------
-//  Dependencies
+//  Logger
 //  ----------------------------------------------------------------------------
-import thunk from 'redux-thunk';
-import { applyMiddleware } from 'redux';
+//
+//  Action and state logging based on interaction in the app. Able to troubleshoot
+//  issues that may arrise in state management.
+//
+const logger = (store) => (next) => (action) => {
+    console.group(action.type);
+    console.log('The action: ', action);
+    const result = next(action);
+    console.log('The new state: ', store.getState());
+    console.groupEnd();
+    return result;
+};
 
-//  -- Logger -------------------------
-import logger from './logger';
-
-
-//  ----------------------------------------------------------------------------
-//  Middleware config
-//  ----------------------------------------------------------------------------
-const middleware = [thunk];
-
-//  -- Development mode add logger ----
-if (process.env.NODE_ENV !== 'production') {
-    middleware.push(logger);
-}
-
-export default applyMiddleware(...middleware);
+export default logger;
