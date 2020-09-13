@@ -5,18 +5,22 @@
 //  -- Actions ------------------------
 import * as ArtistsActions from './actions';
 
+//  -- Mock Data ----------------------
+import { ARTISTS } from 'utils/mockData/artists';
+
 
 //  ----------------------------------------------------------------------------
 //  Thunks
 //  ----------------------------------------------------------------------------
 
 //  -- Get Artist ---------------------
-export const handleGetArtist = () => async(dispatch) => {
+export const handleGetArtist = (artistID) => async(dispatch) => {
     await dispatch(ArtistsActions.getArtist());
 
     try {
+        const artist = ARTISTS.filter(x => x.id === artistID)[0];
         // Adding setTimeout to simulate delayed response
-        setTimeout(() => await dispatch(ArtistsActions.getArtistSuccess('Success')), 1500);
+        setTimeout(() => await dispatch(ArtistsActions.getArtistSuccess(artist)), 1500);
     } catch (error) {
         await dispatch(ArtistsActions.getArtistFail(error));
     }
@@ -28,7 +32,7 @@ export const handleGetArtists = () => async(dispatch) => {
 
     try {
         // Adding setTimeout to simulate delayed response
-        setTimeout(() => await dispatch(ArtistsActions.getArtistsSuccess('Success')), 1500);
+        setTimeout(() => await dispatch(ArtistsActions.getArtistsSuccess(ARTISTS)), 1500);
     } catch (error) {
         await dispatch(ArtistsActions.getArtistsFail(error));
     }
