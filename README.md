@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MBD UI
+=======================
 
-## Available Scripts
+Table of Contents
+-----------------
+1. [Getting Started](#getting-started)
+1. [Usage](#usage)
+1. [Structure](#structure)
 
-In the project directory, you can run:
+Getting Started
+---------------
 
-### `yarn start`
+Just clone the repo and install the necessary node modules:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```shell
+$ git clone git@github.com:glipinc/react-web-ts.git
+$ yarn                   
+$ yarn start                  
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Usage
+-----
 
-### `yarn test`
+#### `yarn start`
+Runs the webpack build system with webpack-dev-server.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `yarn build`
+Runs a production build.
 
-### `yarn build`
+#### `yarn test`
+Runs unit tests with Jest.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Structure
+---------
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The folder structure provided is only meant to serve as a guide, it is by no means prescriptive.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+.
+├── src                      # Application source code
+│   ├── components           # Generic React Components (generally Dumb components)
+│   ├── containers           # Components that provide context (e.g. Redux Providers)
+│   ├── layouts              # Components that dictate major page structure
+│   ├── store                # Mobx store configuration
+│   ├── utils                # Generic utilities
+│   ├── GlobalStyles.ts      # Styled components
+│   └── index.tsx             # Application bootstrap and rendering
+```
 
-### `yarn eject`
+### Components vs. Containers vs. Layouts
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**TL;DR:** They're all components.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This distinction may not be important for you, but as an explanation: A **Layout** is something that describes an entire page structure, such as a fixed navigation, viewport, sidebar, and footer. Most applications will probably only have one layout, but keeping these components separate makes their intent clear. **Containers** are components that live at routes, and are generally rendered within a **Layout**. What this ends up meaning is that, with this structure, nearly everything inside of **Components** ends up being a dumb component.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Troubleshooting
+---------------
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Nothing yet. Having an issue? Report it and I'll get to it as soon as possible!

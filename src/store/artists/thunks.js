@@ -19,8 +19,7 @@ export const handleGetArtist = (artistID) => async (dispatch) => {
 
     try {
         const artist = ARTISTS.filter(x => x.id === artistID)[0];
-        // Adding setTimeout to simulate delayed response
-        setTimeout(async () => await dispatch(ArtistsActions.getArtistSuccess(artist)), 1500);
+        await dispatch(ArtistsActions.getArtistSuccess(artist));
     } catch (error) {
         await dispatch(ArtistsActions.getArtistFail(error));
     }
@@ -32,7 +31,7 @@ export const handleGetArtists = () => async(dispatch) => {
 
     try {
         // Adding setTimeout to simulate delayed response
-        setTimeout(async () => await dispatch(ArtistsActions.getArtistsSuccess(ARTISTS)), 1500);
+        await dispatch(ArtistsActions.getArtistsSuccess(ARTISTS));
     } catch (error) {
         await dispatch(ArtistsActions.getArtistsFail(error));
     }

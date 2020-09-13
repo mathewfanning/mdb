@@ -10,9 +10,6 @@ import ArtistInfoContainer from 'containers/ArtistInfo';
 import SplashContainer from 'containers/Splash';
 import NotFoundContainer from 'containers/NotFound';
 
-//  -- Layouts ------------------------
-import Wrapper from 'layout/Wrapper';
-
 
 //  ----------------------------------------------------------------------------
 //  Routes

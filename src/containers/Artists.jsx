@@ -22,7 +22,7 @@ import { handleGetArtists } from 'store/artists/thunks';
 export const Container = styled.div`
     height: 100%;
     margin: 0 auto;
-    max-width: 1360px;
+    max-width: 1240px;
     padding: 104px 40px;
     width: 100%;
 `;
@@ -44,13 +44,15 @@ const Header = styled.span`
 const Row = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 `;
 
 const RowItem = styled.div`
     display: flex;
     flex-direction: column;
     margin-right: 16px;
-    max-width: 200px;
+    max-width: 172px;
+    min-width: 172px;
     width: 100%;
 `;
 
@@ -89,9 +91,8 @@ const ArtistContainer = ({ artists }) => {
             setLoading(false);
         }
         fetchData();
-    }, [])
+    }, [dispatch])
 
-    console.log(artists);
     return (
         <Wrapper>
             <Container>

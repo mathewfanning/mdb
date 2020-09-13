@@ -14,12 +14,12 @@ import { ALBUMS } from 'utils/mockData/albums';
 //  ----------------------------------------------------------------------------
 
 //  -- Get albums ---------------------
-export const handleGetAlbums = () => async(dispatch) => {
+export const handleGetAlbums = () => async (dispatch) => {
     await dispatch(AlbumsActions.getAlbums());
 
     try {
         // Adding setTimeout to simulate delayed response
-        setTimeout(() => await dispatch(AlbumsActions.getAlbumsSuccess(ALBUMS)), 1500);
+        await dispatch(AlbumsActions.getAlbumsSuccess(ALBUMS));
     } catch (error) {
         await dispatch(AlbumsActions.getAlbumsFail(error));
     }

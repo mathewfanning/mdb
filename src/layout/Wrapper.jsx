@@ -2,10 +2,11 @@
 //  Dependencies
 //  ----------------------------------------------------------------------------
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 //  -- Components ---------------------
-import { CloseOutlined, MenuOutlined } from '@ant-design/icons';
+import { CloseOutlined, MenuOutlined, NotificationOutlined } from '@ant-design/icons';
 import AbsoluteWrapper from 'components/AbsoluteWrapper';
 
 
@@ -63,9 +64,12 @@ const NavRow = styled.div`
 `;
 
 const Toggle = styled.button`
+    align-items: center;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
     outline: none;
 `;
 
@@ -81,12 +85,16 @@ const Toggle = styled.button`
 //  children { element } - child element passed to component
 //
 const Wrapper = ({ children }) => {
+    const history = useHistory();
     const [navOpen, setNavOpen] = useState(false);
 
     return (
         <Container>
             <AbsoluteWrapper left={40} top={40} zIndex={1}>
-                logo
+                <Toggle onClick={() => history.push('/')}>
+                    <NotificationOutlined style={{ marginRight: '8px' }} />
+                    MBD
+                </Toggle>
             </AbsoluteWrapper>
             <AbsoluteWrapper right={40} top={40} zIndex={1}>
                 <Toggle onClick={() => setNavOpen(!navOpen)}>
@@ -101,7 +109,7 @@ const Wrapper = ({ children }) => {
                         </Toggle>
                     </NavRow>
                     <NavRow>
-                        <NavItem>
+                        <NavItem onClick={() => history.push('/artists')}>
                             Artists
                         </NavItem>
                     </NavRow>
